@@ -26,5 +26,25 @@ caption {
 table {
     border-collapse:  collapse;  
     border-spacing:  5px;    
+    width:90%;
+}
+
+
+.controller {
     margin: 1em;   
+}
+
+.controllerHeader{
+}
+
+.controllerValues {
+    display: flex;
+}
+
+.buttons {
+    flex: 1;
+}
+
+.axes {
+    flex: 1;
 }

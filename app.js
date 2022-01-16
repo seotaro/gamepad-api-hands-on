@@ -18,120 +18,140 @@ function addGamepad(gamepad) {
 
   const d = document.createElement('div');
   d.setAttribute('id', 'controller' + gamepad.index);
+  d.className = 'controller';
 
-  // title
+  // header
   {
+    const controllerHeader = document.createElement('div');
+    controllerHeader.className = 'controllerHeader';
+
     const t = document.createElement('h1');
     t.appendChild(document.createTextNode(gamepad.id));
-    d.appendChild(t);
+    controllerHeader.appendChild(t);
+
+    d.appendChild(controllerHeader);
   }
 
-  // buttons table
+  // values
+  const controllerValues = document.createElement('div');
+  controllerValues.className = 'controllerValues';
   {
-    const tbl = document.createElement('table');
-
+    // buttons table
     {
-      const caption = document.createElement('caption');
-      const text = document.createTextNode('buttons');
-      caption.appendChild(text);
-      tbl.appendChild(caption);
-    }
+      const dd = document.createElement('div');
+      dd.className = 'buttons';
 
-    {
-      const thead = document.createElement('thead');
-      const tr = document.createElement('tr');
+      const tbl = document.createElement('table');
 
-      BUTTON_COLUMNS.forEach(column => {
-        const th = document.createElement('th');
-        const text = document.createTextNode(column);
-        th.appendChild(text);
-        tr.appendChild(th);
-      });
+      {
+        const caption = document.createElement('caption');
+        const text = document.createTextNode('buttons');
+        caption.appendChild(text);
+        tbl.appendChild(caption);
+      }
 
-      thead.appendChild(tr);
-      tbl.appendChild(thead);
-    }
-
-    {
-      const tbody = document.createElement('tbody');
-
-      for (let i = 0; i < gamepad.buttons.length; i++) {
+      {
+        const thead = document.createElement('thead');
         const tr = document.createElement('tr');
 
         BUTTON_COLUMNS.forEach(column => {
-          const td = document.createElement('td');
-
-          if (column === 'No.') {
-            const text = document.createTextNode(i);
-            td.appendChild(text);
-          } else {
-            const span = document.createElement('span');
-            span.id = 'button-' + column + '-' + i;
-            td.appendChild(span);
-          }
-
-          tr.appendChild(td);
+          const th = document.createElement('th');
+          const text = document.createTextNode(column);
+          th.appendChild(text);
+          tr.appendChild(th);
         });
-        tbody.appendChild(tr);
+
+        thead.appendChild(tr);
+        tbl.appendChild(thead);
       }
-      tbl.appendChild(tbody);
+
+      {
+        const tbody = document.createElement('tbody');
+
+        for (let i = 0; i < gamepad.buttons.length; i++) {
+          const tr = document.createElement('tr');
+
+          BUTTON_COLUMNS.forEach(column => {
+            const td = document.createElement('td');
+
+            if (column === 'No.') {
+              const text = document.createTextNode(i);
+              td.appendChild(text);
+            } else {
+              const span = document.createElement('span');
+              span.id = 'button-' + column + '-' + i;
+              td.appendChild(span);
+            }
+
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        }
+        tbl.appendChild(tbody);
+      }
+
+      dd.appendChild(tbl);
+      controllerValues.appendChild(dd);
     }
 
-    d.appendChild(tbl);
-  }
-
-  // axes table
-  {
-    const tbl = document.createElement('table');
-
+    // axes table
     {
-      const caption = document.createElement('caption');
-      const text = document.createTextNode('axes');
-      caption.appendChild(text);
-      tbl.appendChild(caption);
-    }
+      const dd = document.createElement('div');
+      dd.className = 'axes';
 
-    {
-      const thead = document.createElement('thead');
-      const tr = document.createElement('tr');
+      const tbl = document.createElement('table');
 
-      AXIS_COLUMNS.forEach(column => {
-        const th = document.createElement('th');
-        const text = document.createTextNode(column);
-        th.appendChild(text);
-        tr.appendChild(th);
-      });
+      {
+        const caption = document.createElement('caption');
+        const text = document.createTextNode('axes');
+        caption.appendChild(text);
+        tbl.appendChild(caption);
+      }
 
-      thead.appendChild(tr);
-      tbl.appendChild(thead);
-    }
-
-    {
-      const tbody = document.createElement('tbody');
-
-      for (let i = 0; i < gamepad.axes.length; i++) {
+      {
+        const thead = document.createElement('thead');
         const tr = document.createElement('tr');
 
         AXIS_COLUMNS.forEach(column => {
-          const td = document.createElement('td');
-
-          if (column === 'No.') {
-            const text = document.createTextNode(i);
-            td.appendChild(text);
-          } else {
-            const span = document.createElement('span');
-            span.id = 'axis-' + column + '-' + i;
-            td.appendChild(span);
-          }
-
-          tr.appendChild(td);
+          const th = document.createElement('th');
+          const text = document.createTextNode(column);
+          th.appendChild(text);
+          tr.appendChild(th);
         });
-        tbody.appendChild(tr);
-      }
-      tbl.appendChild(tbody);
-    }
 
-    d.appendChild(tbl);
+        thead.appendChild(tr);
+        tbl.appendChild(thead);
+      }
+
+      {
+        const tbody = document.createElement('tbody');
+
+        for (let i = 0; i < gamepad.axes.length; i++) {
+          const tr = document.createElement('tr');
+
+          AXIS_COLUMNS.forEach(column => {
+            const td = document.createElement('td');
+
+            if (column === 'No.') {
+              const text = document.createTextNode(i);
+              td.appendChild(text);
+            } else {
+              const span = document.createElement('span');
+              span.id = 'axis-' + column + '-' + i;
+              td.appendChild(span);
+            }
+
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        }
+        tbl.appendChild(tbody);
+      }
+
+      dd.appendChild(tbl);
+      controllerValues.appendChild(dd);
+    }
+    d.appendChild(controllerValues);
   }
 
   document.getElementById('start').style.display = 'none';
