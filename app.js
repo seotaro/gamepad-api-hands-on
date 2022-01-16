@@ -6,10 +6,12 @@ const BUTTON_COLUMNS = ['No.', 'pressed', 'touched', 'value'];
 const AXIS_COLUMNS = ['No.', 'value'];
 
 function onConnect(e) {
+  console.log('onConnect', e.gamepad);
   addGamepad(e.gamepad);
 }
 
 function onDisconnect(e) {
+  console.log('onDisconnect', e.gamepad);
   removeGamepad(e.gamepad);
 }
 
