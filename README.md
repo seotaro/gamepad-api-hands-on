@@ -1,1 +1,1 @@
-# GamepadAPI
+# Gamepad API
