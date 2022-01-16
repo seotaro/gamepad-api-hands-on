@@ -21,8 +21,8 @@ function addGamepad(gamepad) {
 
   // title
   {
-    const t = document.createElement("h1");
-    t.appendChild(document.createTextNode("gamepad: " + gamepad.id));
+    const t = document.createElement('h1');
+    t.appendChild(document.createTextNode(gamepad.id));
     d.appendChild(t);
   }
 
@@ -66,7 +66,7 @@ function addGamepad(gamepad) {
             td.appendChild(text);
           } else {
             const span = document.createElement('span');
-            span.id = "button-" + column + "-" + i;
+            span.id = 'button-' + column + '-' + i;
             td.appendChild(span);
           }
 
@@ -76,8 +76,6 @@ function addGamepad(gamepad) {
       }
       tbl.appendChild(tbody);
     }
-
-    tbl.setAttribute("border", "1");
 
     d.appendChild(tbl);
   }
@@ -122,7 +120,7 @@ function addGamepad(gamepad) {
             td.appendChild(text);
           } else {
             const span = document.createElement('span');
-            span.id = "axis-" + column + "-" + i;
+            span.id = 'axis-' + column + '-' + i;
             td.appendChild(span);
           }
 
@@ -133,11 +131,10 @@ function addGamepad(gamepad) {
       tbl.appendChild(tbody);
     }
 
-    tbl.setAttribute("border", "1");
     d.appendChild(tbl);
   }
 
-  document.getElementById("start").style.display = "none";
+  document.getElementById('start').style.display = 'none';
   document.body.appendChild(d);
 
   window.requestAnimationFrame(updateStatus);
@@ -171,7 +168,7 @@ function updateStatus() {
     for (let i = 0; i < controller.axes.length; i++) {
       const value = controller.axes[i];
 
-      const t = document.getElementById("axis-value-" + i);
+      const t = document.getElementById('axis-value-' + i);
       t.innerHTML = value;
     }
   }
@@ -188,5 +185,5 @@ function scanGamepads() {
   }
 }
 
-window.addEventListener("gamepadconnected", onConnect);
-window.addEventListener("gamepaddisconnected", onDisconnect);
+window.addEventListener('gamepadconnected', onConnect);
+window.addEventListener('gamepaddisconnected', onDisconnect);
