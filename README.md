@@ -1,4 +1,4 @@
-# Gamepad API
+# Gamepad API ハンズオン
 
 [Gamepad API](https://developer.mozilla.org/ja/docs/Web/API/Gamepad_API) を使って、接続したゲームパッドの状態を取得する。
 
