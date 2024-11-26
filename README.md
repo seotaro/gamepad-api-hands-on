@@ -2,7 +2,7 @@
 
 [Gamepad API](https://developer.mozilla.org/ja/docs/Web/API/Gamepad_API) を使って、接続したゲームパッドの状態を取得する。
 
-[ライブデモ](https://seotaro.github.io/GamepadAPI/)
+[ライブデモ](https://seotaro.github.io/gamepad-api-hands-on/)
 
 ## 実行例
 
