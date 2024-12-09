@@ -5,6 +5,9 @@ const controllers = {};
 const BUTTON_COLUMNS = ['No.', 'pressed', 'touched', 'value'];
 const AXIS_COLUMNS = ['No.', 'value'];
 
+const BUTTON_COLUMN_STYLES = ['key', 'boolenValue', 'boolenValue', 'realValue'];
+const AXIS_COLUMN_STYLES = ['key', 'realValue'];
+
 function onConnect(e) {
   console.log('onConnect', e.gamepad);
   addGamepad(e.gamepad);
@@ -55,9 +58,10 @@ function addGamepad(gamepad) {
       {
         const thead = document.createElement('thead');
         const tr = document.createElement('tr');
-
-        BUTTON_COLUMNS.forEach(column => {
+        BUTTON_COLUMNS.forEach((column, index) => {
           const th = document.createElement('th');
+          th.className = BUTTON_COLUMN_STYLES[index];
+
           const text = document.createTextNode(column);
           th.appendChild(text);
           tr.appendChild(th);
@@ -69,12 +73,14 @@ function addGamepad(gamepad) {
 
       {
         const tbody = document.createElement('tbody');
+        console.log(gamepad.buttons);
 
         for (let i = 0; i < gamepad.buttons.length; i++) {
           const tr = document.createElement('tr');
 
-          BUTTON_COLUMNS.forEach(column => {
+          BUTTON_COLUMNS.forEach((column, index) => {
             const td = document.createElement('td');
+            td.className = BUTTON_COLUMN_STYLES[index];
 
             if (column === 'No.') {
               const text = document.createTextNode(i);
@@ -114,8 +120,9 @@ function addGamepad(gamepad) {
         const thead = document.createElement('thead');
         const tr = document.createElement('tr');
 
-        AXIS_COLUMNS.forEach(column => {
+        AXIS_COLUMNS.forEach((column, index) => {
           const th = document.createElement('th');
+          th.className = AXIS_COLUMN_STYLES[index];
           const text = document.createTextNode(column);
           th.appendChild(text);
           tr.appendChild(th);
@@ -131,8 +138,9 @@ function addGamepad(gamepad) {
         for (let i = 0; i < gamepad.axes.length; i++) {
           const tr = document.createElement('tr');
 
-          AXIS_COLUMNS.forEach(column => {
+          AXIS_COLUMNS.forEach((column, index) => {
             const td = document.createElement('td');
+            td.className = AXIS_COLUMN_STYLES[index];
 
             if (column === 'No.') {
               const text = document.createTextNode(i);

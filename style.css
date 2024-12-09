@@ -1,41 +1,39 @@
-
-html{
+html {
     font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
 }
 
-h1{
+h1 {
     font-size: x-large;
 }
 
 th {
     border-bottom: 3px double gray;
-    padding: 0.5em 1em;         
+    padding: 0.5em 1em;
 }
 
 td {
     border-top: 1px solid gray;
-    padding: 0.5em 1em;                  
+    padding: 0.5em 1em;
 }
- 
+
 caption {
     text-align: start;
-    font-weight:bold;
+    font-weight: bold;
     font-size: x-large;
 }
- 
+
 table {
-    border-collapse:  collapse;  
-    border-spacing:  5px;    
-    width:90%;
+    border-collapse: collapse;
+    border-spacing: 5px;
+    width: 90%;
 }
 
 
 .controller {
-    margin: 1em;   
+    margin: 1em;
 }
 
-.controllerHeader{
-}
+.controllerHeader {}
 
 .controllerValues {
     display: flex;
@@ -47,4 +45,16 @@ table {
 
 .axes {
     flex: 1;
+}
+
+.key {
+    width: 2em;
+}
+
+.boolenValue {
+    width: 2em;
+}
+
+.realValue {
+    width: 12em;
 }
