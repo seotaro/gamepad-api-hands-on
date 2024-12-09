@@ -87,7 +87,7 @@ function addGamepad(gamepad) {
               td.appendChild(text);
             } else {
               const span = document.createElement('span');
-              span.id = 'button-' + column + '-' + i;
+              span.id = `button-${gamepad.index}-${column}-${i}`;
               td.appendChild(span);
             }
 
@@ -147,7 +147,7 @@ function addGamepad(gamepad) {
               td.appendChild(text);
             } else {
               const span = document.createElement('span');
-              span.id = 'axis-' + column + '-' + i;
+              span.id = `axis-${gamepad.index}-value-${i}`;
               td.appendChild(span);
             }
 
@@ -189,7 +189,7 @@ function updateStatus() {
       BUTTON_COLUMNS
         .filter(column => (column !== 'No.'))
         .forEach(column => {
-          const t = document.getElementById('button-' + column + '-' + i);
+          const t = document.getElementById(`button-${key}-${column}-${i}`);
           t.innerHTML = Reflect.get(button, column);
         });
     }
@@ -198,7 +198,7 @@ function updateStatus() {
     for (let i = 0; i < controller.axes.length; i++) {
       const value = controller.axes[i];
 
-      const t = document.getElementById('axis-value-' + i);
+      const t = document.getElementById(`axis-${key}-value-${i}`);
       t.innerHTML = value;
     }
   }
